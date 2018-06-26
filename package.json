@@ -2,6 +2,7 @@
   "name": "github-browser",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://superdexter.github.io/gitbrowser",
   "dependencies": {
     "connected-react-router": "^4.3.0",
     "react": "^16.4.1",
