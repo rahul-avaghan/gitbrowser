@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.text-muted {
+    color: #6c757d !important;
+    min-height: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card {
+    box-shadow: 0 0px 1px rgb(0, 77, 64, 0.2);
+    border: none;
+}
+
+nav {
+    background: #004d40;
+}
+
+nav>a {
+    color: white !important;
+}
+
+.card-body h5 {
+    color: #004d40 !important;
+}
+
+.btn-secondary {
+    background: white !important;
+    color: #004d40 !important;
+    border: 1px solid #004d40 !important;
+}
+
+.btn-secondary a {
+    color: #004d40 !important;
+}
+
+.btn-secondary>a:hover {
+    text-transform: none !important;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: #004d40;
+    border: 1px solid #004d40 !important;
+    color: white;
+    transition: background ease-in 0.2s;
+}
+
+.nav-item>a {
+    color: white !important;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-spacebetween {
+    justify-content: space-between;
+}
+
+.automargin {
+    margin: auto;
+}
+
+.form-control {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.searchheader {
+    margin-top: 20px;
+}
+
+.form-control:hover,
+.form-control:focus {
+    border: 1px solid #004d40 !important;
+    box-shadow: 0 2px 6px rgb(0, 77, 64, 0.2) !important;
+}
+
+.viewcommits {
+    margin-top: 20px !important;
+}
+
+.list-group-item-heading {
+    max-width: 87%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nav-item>input {
+    margin: 0;
+}
+
+.btn-info {
+    margin: 20px 0 40px 0;
+    background: #004d40 !important;
+    border: 1px solid #004d40 !important;
+    color: white;
+    transition: background ease-in 0.2s;
+}
+
+
+.btn-secondary>a :hover {
+    color: white;
+}
+
+.repoHeader {
+    text-align: left;
+    margin: 10px 66px;
+}

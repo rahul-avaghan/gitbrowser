@@ -1,0 +1,35 @@
+.repocontainer {
+  
+}
+
+.commitcontainer {
+  justify-content: center;
+  /* text-align: center; */
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  margin: auto;
+}
+
+.maincontainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.h3 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  float: right;
+}
+
+ListGroupItemHeading {
+  width: 40%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
