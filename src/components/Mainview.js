@@ -10,7 +10,7 @@ export class Mainview extends Component {
         <Header />
         <BrowserRouter>
           <div>
-            <Route exact path="/gitbrowser" component={RepositoryList} />
+            <Route exact path="/" component={RepositoryList} />
             <Route path="/repositories" component={RepositoryList} />
             <Route path="/commits/:repoName" component={Commits} />
           </div>
