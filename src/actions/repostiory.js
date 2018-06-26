@@ -6,20 +6,19 @@ import {
 } from "./type";
 import { API_CONFIGURATION } from "../constants";
 
-export const getRepositories = user => dispatch => {
+export const getRepositories = token => dispatch => {
   fetch(
     API_CONFIGURATION.URL +
       "/" +
       "users" +
       "/" +
-      user +
+      API_CONFIGURATION.REPO_NAME +
       "/" +
       API_CONFIGURATION.REPO_CONTEXT +
       "?" +
-      "&" +
       API_CONFIGURATION.ACCESS_TOKEN_LABEL +
       "=" +
-      API_CONFIGURATION.TOKEN
+      token
   )
     .then(res => res.json())
     .then(response =>
@@ -31,6 +30,7 @@ export const getRepositories = user => dispatch => {
 };
 
 export const getCommits = (
+  token,
   repositoryName,
   page = 1,
   pageSize = 20
@@ -50,7 +50,7 @@ export const getCommits = (
       "&per_page=" +
       pageSize +
       "&access_token=" +
-      API_CONFIGURATION.TOKEN
+      token
   )
     .then(res => res.json())
     .then(response => {

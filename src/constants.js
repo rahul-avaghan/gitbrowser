@@ -3,7 +3,7 @@ export const API_CONFIGURATION = {
   REPO_CONTEXT: "repos",
   REPO_NAME: "facebook",
   COMMIT_CONTEXT: "commits",
-  TOKEN: "460dfc17c8e37e6e578f13625c494c64753a067f",
+  TOKEN: " 4ab2a18edc2deabcd0664e073d92baf4f75f8fd4",
   SEARCH_COMMITS: "search/commits",
   ACCESS_TOKEN_LABEL:'access_token'
 };

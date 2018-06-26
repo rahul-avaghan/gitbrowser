@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 import "./repocontainer.css";
 class RepositoryList extends Component {
   componentWillMount() {
-    this.props.getRepositories("facebook");
+    this.props.getRepositories(this.props.token);
   }
 
   liStyle = {
@@ -73,12 +73,14 @@ class RepositoryList extends Component {
 RepositoryList.propTypes = {
   getRepositories: PropTypes.func.isRequired,
   repositories: PropTypes.array.isRequired,
-  getCommits: PropTypes.func.isRequired
+  getCommits: PropTypes.func.isRequired,
+  token:PropTypes.string
 };
 
 const mapStateToProps = state => ({
   repos: state.repos.repositories,
-  commits: state.repos.commits
+  commits: state.repos.commits,
+  token:state.tokenreducer.token
 });
 
 export default connect(

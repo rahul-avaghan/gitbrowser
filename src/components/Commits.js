@@ -26,7 +26,6 @@ import "./repocontainer.css";
 class Commits extends Component {
   constructor() {
     super();
-    this.state = { searchMessage: "" };
     this.input = React.createRef();
     this.getMoreItems = this.getMoreItems.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -40,7 +39,7 @@ class Commits extends Component {
     ) {
       this.currentPage = 1;
       this.props.refreshCommits();
-      this.props.getCommits(this.props.match.params.repoName);
+      this.props.getCommits(this.props.token,this.props.match.params.repoName);
     }
   }
 
@@ -152,14 +151,16 @@ class Commits extends Component {
 }
 const mapCommitStateToProps = state => ({
   commits: state.repos.commits,
-  commitsAvaiable:state.repos.commitsAvaiable
+  commitsAvaiable:state.repos.commitsAvaiable,
+  token:state.tokenreducer.token
 });
 
 Commits.propTypes = {
   getCommits: PropTypes.func.isRequired,
   refreshCommits: PropTypes.func.isRequired,
   searchInput: PropTypes.string,
-  commitsAvaiable:PropTypes.boolean
+  commitsAvaiable:PropTypes.bool.isRequired,
+  token:PropTypes.string
 };
 export default connect(
   mapCommitStateToProps,

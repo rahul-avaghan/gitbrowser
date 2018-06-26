@@ -3,3 +3,5 @@ export const GET_COMMITS = "GET_COMMITS";
 export const REFERSH_COMMITS ="REFERSH_COMMITS";
 export const SEARCH_COMMITS ="SEARCH_COMMITS";
 export const NO_ITEMS_AVAILABLE ="NO_ITEMS_AVAILABLE";
+export const SET_TOKEN ="SET_TOKEN";
+export const GET_TOKEN ="GET_TOKEN"
