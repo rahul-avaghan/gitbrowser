@@ -8,12 +8,14 @@ import {
   Button
 } from "reactstrap";
 
-import { getRepositories, getCommits } from "../actions/repostiory";
+import { getRepositories, getCommits } from "../actions/RepostioryAction";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
-import "./repocontainer.css";
+import "./Repocontainer.css";
+/** repostitory component */
 class RepositoryList extends Component {
+  /**on component mounted */
   componentWillMount() {
     this.props.getRepositories(this.props.token);
   }

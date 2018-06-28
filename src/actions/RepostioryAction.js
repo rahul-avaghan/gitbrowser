@@ -3,16 +3,19 @@ import {
   GET_COMMITS,
   REFERSH_COMMITS,
   NO_ITEMS_AVAILABLE
-} from "./type";
-import { API_CONFIGURATION } from "../constants";
-
+} from "./Type";
+import { API_CONFIGURATION } from "../Constants";
+/**
+ * 
+ * @param {string} token toke for fetching repo
+ */
 export const getRepositories = token => dispatch => {
   fetch(
-    API_CONFIGURATION.URL +
+    API_CONFIGURATION.URL +//github base url
       "/" +
       "users" +
       "/" +
-      API_CONFIGURATION.REPO_NAME +
+      API_CONFIGURATION.REPO_NAME +//main repo or user name hard coded to facebook right now
       "/" +
       API_CONFIGURATION.REPO_CONTEXT +
       "?" +
@@ -29,6 +32,13 @@ export const getRepositories = token => dispatch => {
     );
 };
 
+/**
+ * 
+ * @param {string} token token for gitub repo not implemeted now
+ * @param {string} repositoryName repository name for fetching commits
+ * @param {number} page page number for pagiation
+ * @param {number} pageSize optional
+ */
 export const getCommits = (
   token,
   repositoryName,
@@ -54,6 +64,7 @@ export const getCommits = (
   )
     .then(res => res.json())
     .then(response => {
+      debugger;
       response && response.length > 0
         ? dispatch({
             type: GET_COMMITS,
@@ -65,14 +76,21 @@ export const getCommits = (
           });
     });
 };
-
+/**refersh commits from the UI */
 export const refreshCommits = () => dispatch => {
   dispatch({
     type: REFERSH_COMMITS,
     payload: []
   });
 };
-
+/**
+ * 
+ * @param {string} user main owner
+ * @param {string} repoName reponame
+ * @param {string} search search string
+ * @param {number} page page  number
+ * @param {number} sizePage size of the page
+ */
 export const searchCommits = (
   user,
   repoName,

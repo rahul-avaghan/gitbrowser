@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { repositoryReducer } from "./repositoryreducer";
-import { tokenreducer } from "./tokenreducer";
+import { RepositoryReducer } from "./RepositoryReducer";
+import { TokenReducer } from "./TokenReducer";
 
 export default combineReducers({
-  repos: repositoryReducer,
-  tokenreducer: tokenreducer
+  repos: RepositoryReducer,
+  tokenreducer: TokenReducer
 });

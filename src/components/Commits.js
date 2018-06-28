@@ -17,13 +17,15 @@ import {
   getCommits,
   refreshCommits,
   searchCommits
-} from "./../actions/repostiory";
+} from "./../actions/RepostioryAction";
 
 import { DATE_OPTIONS } from "../constants";
 
-import "./repocontainer.css";
+import "./Repocontainer.css";
 
+/** component to show commits */
 class Commits extends Component {
+  /** bind events on constructor*/
   constructor() {
     super();
     this.input = React.createRef();
@@ -31,6 +33,7 @@ class Commits extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  /** refresh commits on load of page and load fresh commit messges */
   componentDidMount() {
     if (
       this.props.match &&
@@ -39,16 +42,23 @@ class Commits extends Component {
     ) {
       this.currentPage = 1;
       this.props.refreshCommits();
-      this.props.getCommits(this.props.token,this.props.match.params.repoName);
+      this.props.getCommits(this.props.token, this.props.match.params.repoName);
     }
   }
 
+  /**
+   * commit row html
+   */
   getCommitRow = k => {
     return (
       <ListGroupItem key={k.sha}>
         <div>
           <a href={k.author ? k.author.html_url : "#"}>
-            <img alt={k.commit.author.name} class="avatar" src={k.author ? k.author.avatar_url : ""} />
+            <img
+              alt={k.commit.author.name}
+              class="avatar"
+              src={k.author ? k.author.avatar_url : ""}
+            />
           </a>
         </div>
         <ListGroupItemHeading>{k.commit.message}</ListGroupItemHeading>
@@ -63,11 +73,16 @@ class Commits extends Component {
     );
   };
 
+  /**
+   * get more commits
+   * @param {event} e UI event  
+   */
   getMoreItems(e) {
     this.currentPage++;
     e.preventDefault();
     this.input.current.value === ""
       ? this.props.getCommits(
+          this.props.token,
           this.props.match.params.repoName,
           this.currentPage
         )
@@ -80,7 +95,7 @@ class Commits extends Component {
   }
 
   /**
-   *
+   *on click of enter start searching for
    */
   handleChange = e => {
     if (e.key === "Enter" && this.input.current.value) {
@@ -99,11 +114,15 @@ class Commits extends Component {
       <div>
         {this.props.commitsAvaiable}
         <Container>
+         
+         
           <Row>
             <Col sm={{ size: 10, order: 2, offset: 1 }}>
               <Searchheader repoName={this.props.match.params.repoName} />
             </Col>
           </Row>
+
+
           <Row>
             <Col sm={{ size: 10, order: 2, offset: 1 }}>
               <input
@@ -117,6 +136,8 @@ class Commits extends Component {
               />
             </Col>
           </Row>
+
+
           <Row>
             <Col sm={{ size: 10, order: 2, offset: 1 }}>
               <div>
@@ -138,30 +159,43 @@ class Commits extends Component {
                 <Alert hidden={this.props.commits.length !== 0} color="warning">
                   No commits found!
                 </Alert>
-                <Alert hidden={this.props.commitsAvaiable === true} color="danger">
+                <Alert
+                  hidden={this.props.commitsAvaiable === true}
+                  color="danger"
+                >
                   Thats all ..!
                 </Alert>
               </div>
             </Col>
           </Row>
+
+
         </Container>
       </div>
     );
   }
 }
+
+/**
+ * maps state to props
+ * @param {state} state 
+ */
 const mapCommitStateToProps = state => ({
   commits: state.repos.commits,
-  commitsAvaiable:state.repos.commitsAvaiable,
-  token:state.tokenreducer.token
+  commitsAvaiable: state.repos.commitsAvaiable,
+  token: state.tokenreducer.token
 });
 
+/***define types for props */
 Commits.propTypes = {
   getCommits: PropTypes.func.isRequired,
   refreshCommits: PropTypes.func.isRequired,
   searchInput: PropTypes.string,
-  commitsAvaiable:PropTypes.bool.isRequired,
-  token:PropTypes.string
+  commitsAvaiable: PropTypes.bool.isRequired,
+  token: PropTypes.string
 };
+
+/**export a redux handled component */
 export default connect(
   mapCommitStateToProps,
   {

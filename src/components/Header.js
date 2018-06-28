@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { setToken } from "./../actions/tokenresolver";
+import { setToken } from "./../actions/TokenAction";
 import {
   Collapse,
   Navbar,
@@ -13,7 +13,11 @@ import {
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 
+/** Header component */
 class Header extends Component {
+  /**
+   * set state and handle change event
+   */
   constructor() {
     super();
     this.toggle = this.toggle.bind(this);
@@ -24,18 +28,28 @@ class Header extends Component {
     };
     this.onTokenChange = this.onTokenChange.bind(this);
   }
+
+
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
+
+
+/**
+ * on change of token :todo implement the toke feature
+ */
   onTokenChange = e => {
-    debugger;
     if (e.target.value) {
-      debugger;
       this.props.setToken(e.target.value);
     }
   };
+
+
+
+
   render() {
     return (
       <div>
@@ -61,6 +75,7 @@ class Header extends Component {
                   onChange={this.onTokenChange}
                 />
               </NavItem> */}
+              {/*link to my profile*/}
               <NavItem>
                 <NavLink href="https://github.com/superdexter">Author</NavLink>
               </NavItem>
@@ -71,7 +86,10 @@ class Header extends Component {
     );
   }
 }
-
+/**
+ * maps state to props
+ * @param {state} state 
+ */
 const mapHeaderStatetoProps = state => ({
   token: state.tokenreducer.token
 });
@@ -81,6 +99,7 @@ Header.propTypes = {
   setToken: PropTypes.func.isRequired
 };
 
+/**export redux handled componet */
 export default connect(
   mapHeaderStatetoProps,
   {

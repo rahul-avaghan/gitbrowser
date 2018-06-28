@@ -4,15 +4,19 @@ import {
   REFERSH_COMMITS,
   SEARCH_COMMITS,
   NO_ITEMS_AVAILABLE
-} from "../actions/type";
+} from "../actions/Type";
 
 const initialstate = {
   repositories: [],
   commits: [],
   commitsAvaiable: true
 };
-
-export const repositoryReducer = (state = initialstate, action) => {
+/**
+ * currently one reducer for both repo and commits todo:separate reporeducer from commits
+ * @param {state} state 
+ * @param {action} action 
+ */
+export const RepositoryReducer = (state = initialstate, action) => {
   switch (action.type) {
     case GET_REPOSITORIES:
       return {
@@ -22,7 +26,7 @@ export const repositoryReducer = (state = initialstate, action) => {
     case GET_COMMITS:
       return {
         ...state,
-        commits: state.commits.concat(action.payload)
+        commits:  state.commits.concat(action.payload)
       };
     case REFERSH_COMMITS:
       return {

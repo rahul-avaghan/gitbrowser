@@ -3,6 +3,7 @@ import Header from "./Header";
 import RepositoryList from "./RepositoryList";
 import Commits from "../components/Commits";
 import { Route, BrowserRouter } from "react-router-dom";
+/**main view  */
 export class Mainview extends Component {
   render() {
     return (
