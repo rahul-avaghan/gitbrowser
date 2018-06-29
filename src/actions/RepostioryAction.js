@@ -9,7 +9,7 @@ import { API_CONFIGURATION } from "../Constants";
  * 
  * @param {string} token toke for fetching repo
  */
-export const getRepositories = token => dispatch => {
+export const getRepositories = token => dispatch => {// arrow function feature of ES6 ..Why:clean code..better readability
   fetch(
     API_CONFIGURATION.URL +//github base url
       "/" +
