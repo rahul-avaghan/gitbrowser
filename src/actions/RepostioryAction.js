@@ -42,7 +42,7 @@ export const getRepositories = token => dispatch => {
 export const getCommits = (
   token,
   repositoryName,
-  page = 1,
+  page = 1,//defalut parameter feature of ES6 to assign a default value...Why : simplifirs the code..avoids sending values all the time and adds the flexibility to send custom values
   pageSize = 20
 ) => dispatch => {
   fetch(
