@@ -1,4 +1,4 @@
-App to browser repositories in github
+React implementation of Github client to browse repositories
 and to view commits for each repostiories
 
 ## Installation
